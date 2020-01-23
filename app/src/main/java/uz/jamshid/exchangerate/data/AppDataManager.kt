@@ -49,8 +49,6 @@ object AppDataManager : DataManager {
     override fun getExchangeRate(inCurrency: String, outCurrency: String): Single<RatesResponse> {
 
         return service.getExchangeRate(inCurrency, outCurrency)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
     }
 
     fun loadFromCacheOrNet(inCurrency: String, outCurrency: String): Observable<Float> {
